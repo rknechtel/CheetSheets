@@ -1181,15 +1181,17 @@ After you have connected to your Kubernetes Dashboard, you can view and control 
 For more information about using the dashboard, see the [project documentation on GitHub](https://github.com/kubernetes/dashboard).  
 
 **References:**  
-https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-kubernetes-dashboard/
-https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
+https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-kubernetes-dashboard/  
 
-https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html  
+
+https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/  
 
 *Monitoring and Alerting*  
 
-https://www.tigera.io/learn/guides/kubernetes-monitoring/
-https://sysdig.com/blog/alerting-kubernetes/
+https://www.tigera.io/learn/guides/kubernetes-monitoring/  
+
+https://sysdig.com/blog/alerting-kubernetes/  
 
 ---
 
@@ -1250,7 +1252,7 @@ kubectl proxy
 ```
 
 3) Put this URL in Browser:
-http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login  
 
 3) Choose Token, paste the <authentication_token> output from the  command in Step 1 into the Token field, and choose SIGN IN. 
 
@@ -1260,17 +1262,20 @@ The UI can only be accessed from the machine where the command is executed. See 
 
 **References:**  
 
-https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard
-https://github.com/kubernetes/dashboard
-https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-dashboard
+https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard  
 
-https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html
-https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
-https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-kubernetes-dashboard/
+https://github.com/kubernetes/dashboard  
+
+https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-dashboard  
+
+https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html  
+
+https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html  
+
+https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-kubernetes-dashboard/  
 
 Install Kubernetes Dashboard in Kubernetes "master" node (Non-AWS EKS):  
-https://adamtheautomator.com/kubernetes-dashboard
-
+https://adamtheautomator.com/kubernetes-dashboard  
  
 ---
 
@@ -1439,7 +1444,9 @@ kubectl delete pod <PODNAME> --grace-period=0 --force --namespace <NAMESPACE>
 ## References  
 
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/  
+
 https://kubernetes.io/docs/concepts/architecture/nodes/  
+
 https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/  
 
 https://github.com/kubernetes-sigs/metrics-server  
