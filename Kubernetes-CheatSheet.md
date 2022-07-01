@@ -81,10 +81,10 @@ Server Version: v1.21.2-eks-0389ca3
 
 ```bash
 # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
-source <(kubectl completion bash)
+source [(kubectl completion bash)
 
 # add autocomplete permanently to your bash shell.
-echo "source <(kubectl completion bash)" >> ~/.bashrc
+echo "source [(kubectl completion bash)" ]] ~/.bashrc
 ```
 
 *You can also use a shorthand alias for `kubectl` that also works with completion:*  
@@ -98,10 +98,10 @@ complete -F __start_kubectl k
 
 ```bash
 # setup autocomplete in zsh into the current shell
-source <(kubectl completion zsh)
+source [(kubectl completion zsh)
 
 # add autocomplete permanently to your zsh shell
-echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc
+echo "[[ $commands[kubectl] ]] && source [(kubectl completion zsh)" ]] ~/.zshrc
 ```
 
 ## Kubectl context and configuration  
@@ -249,16 +249,16 @@ kubectl delete cronjob my-cronjob
 kubectl create cronjob hello --image=busybox   --schedule="*/1 * * * *" -- echo "Hello World"    
 
 # Create a job
-kubectl create job --from=cronjob/<cronjob-name> job-name
+kubectl create job --from=cronjob/[cronjob-name] job-name
 
 # Create a duplicat of cronjob
-kubectl get cronjob <cronjob-name> -o json > /tmp/<cronjob-name>.json && sed -i 's/<cronjob-name>/<cronjob-name>-duplicate/' /tmp/<cronjob-name>.json && kubectl create -f /tmp/<cronjob-name>.json
+kubectl get cronjob [cronjob-name] -o json ] /tmp/[cronjob-name].json && sed -i 's/[cronjob-name]/[cronjob-name]-duplicate/' /tmp/[cronjob-name].json && kubectl create -f /tmp/[cronjob-name].json
 
 # get the documentation for pod manifests
 kubectl explain pods
 
 # Create multiple YAML objects from stdin
-cat <<EOF | kubectl apply -f -
+cat [[EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -285,7 +285,7 @@ spec:
 EOF
 
 # Create a secret with several keys
-cat <<EOF | kubectl apply -f -
+cat [[EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
 metadata:
@@ -312,19 +312,19 @@ kubectl get apiservices | grep v1beta1.apiextensions.k8s.io
 kubectl get ns
 
 # Get a specific namespace
-kubectl get ns <MYNAMSPACE>
+kubectl get ns [MYNAMSPACE]
 
 # Get a specific namespace in JSON
-kubectl get ns <MYNAMSPACE> -o json
+kubectl get ns [MYNAMSPACE] -o json
 
 # Fetch information about everything in current namespace
 kubectl get all
 
 # Fetch information about everything in a specific namespace
-kubectl get all -n <MYNAMSPACE>
+kubectl get all -n [MYNAMSPACE]
 
 # Fetch information about everything in a specific namespace in JSON
-kubectl get all -n <MYNAMSPACE> -o json
+kubectl get all -n [MYNAMSPACE] -o json
 
 # Fetch information about everything in all namespaces
 kubectl get all -A
@@ -351,7 +351,7 @@ kubectl get pods --output json
 kubectl get pods --output json | jq
 
 # List pods by a node name:
-kubectl get pods -o wide --all-namespaces | grep <YOUR-NODE>
+kubectl get pods -o wide --all-namespaces | grep [YOUR-NODE]
 
 # List/Sort pods by node name:
 kubectl get pods -o wide --sort-by="{.spec.nodeName}"
@@ -382,12 +382,12 @@ kubectl get secret
 kubectl get secrets
 
 # Describe secret (will show the secret)
-kubectl describe secret <SECRET>
+kubectl describe secret [SECRET]
 
 # List deployments
 kubectl get deployments
 -or-
-kubectl get deployments <NAME>
+kubectl get deployments [NAME]
 
 # List deployments in a namespace
 kubectl get deployments -n kube-system
@@ -398,12 +398,12 @@ kubectl get deployments -o wide
 # Get deployment details
 kubectl describe deployments
 -or-
-kubectl describe deployment <NAME>
+kubectl describe deployment [NAME]
 
 # Get the Deployment details in YAML format:
 kubectl get deployments -o yaml
 - or -
-kubectl get deployments <NAME> -o yaml
+kubectl get deployments [NAME] -o yaml
 
 # Get Deployment details on a particualr app
 kubectl get deployments.apps [YOUR-APP-NAME]
@@ -424,16 +424,16 @@ kubectl get pod my-pod -o yaml
 # Describe commands with verbose output
 
 # Describe Nodes
-kubectl describe nodes <node>
+kubectl describe nodes [node]
 
 # Look for Disk Pressure on Nodes:
-kubectl describe nodes 2>&1 | grep -i Disk
+kubectl describe nodes 2]&1 | grep -i Disk
 
 # Describe a single Node:
-kubectl describe node <node>
+kubectl describe node [node]
 
 # Describe a Node and show Taints:
-kubectl describe node <node> | grep Taints
+kubectl describe node [node] | grep Taints
 
 # Describe a Pod
 kubectl describe pods my-pod
@@ -567,7 +567,7 @@ kubectl describe configmaps myconfigmap
 kubectl get configmaps myconfigmap -o yaml
 
 # Create a configmap
-kubectl create configmap <name> <data-source>
+kubectl create configmap [name] [data-source]
 
 # ConfigMap Data Source
 # Example kubectl command
@@ -718,7 +718,7 @@ kubectl delete -f ./pod.json
 kubectl delete pod,service baz foo
 
 # Forceuflly Delete a pod
-kubectl delete pod <PODNAME> --grace-period=0 --force --namespace <NAMESPACE>
+kubectl delete pod [PODNAME] --grace-period=0 --force --namespace [NAMESPACE]
 
 # Delete pods and services with label name=myLabel
 kubectl delete pods,services -l name=myLabel
@@ -814,7 +814,7 @@ kubectl run -i --tty busybox --image=busybox -- sh
 kubectl run nginx --image=nginx -n mynamespace
 
 # Run pod nginx and write its spec into a file called pod.yaml
-kubectl run nginx --image=nginx --dry-run=client -o yaml > pod.yaml
+kubectl run nginx --image=nginx --dry-run=client -o yaml ] pod.yaml
 
 # Attach to Running Container
 kubectl attach my-pod -i
@@ -892,10 +892,10 @@ kubectl port-forward my-pod 5000:6000
 # Listen on local port 5000 and forward to port 5000 on Service backend
 kubectl port-forward svc/my-service 5000
 
-# Listen on local port 5000 and forward to Service target port with name <my-service-port>
+# Listen on local port 5000 and forward to Service target port with name [my-service-port]
 kubectl port-forward svc/my-service 5000:my-service-port
 
-# Listen on local port 5000 and forward to port 6000 on a Pod created by <my-deployment>
+# Listen on local port 5000 and forward to port 6000 on a Pod created by [my-deployment]
 kubectl port-forward deploy/my-deployment 5000:6000
 
 # To access a Database from a Database client (Forwarding to your local Database client)
@@ -908,19 +908,19 @@ kubectl exec deploy/my-deployment -- ls
 ## Interacting with Nodes and cluster  
 
 ```bash
-# Mark <node> as unschedulable
-kubectl cordon <node>
+# Mark [node] as unschedulable
+kubectl cordon [node]
 
-# Drain <node> in preparation for maintenance
-kubectl drain <node>
+# Drain [node] in preparation for maintenance
+kubectl drain [node]
 # OR:
-kubectl drain --delete-local-data --ignore-daemonsets <node>
+kubectl drain --delete-local-data --ignore-daemonsets [node]
 
-# Mark <node> as schedulable
-kubectl uncordon <node>
+# Mark [node] as schedulable
+kubectl uncordon [node]
 
 # Show metrics for a given node
-kubectl top node <node>
+kubectl top node [node]
 
 # Display addresses of the master and services
 kubectl cluster-info
@@ -971,11 +971,11 @@ To output details to your terminal window in a specific format, add the -o (or -
 
 | Output format | Description |
 |---------------|-------------|
-| -o=custom-columns=<spec> | Print a table using a comma separated list of custom columns |
-| -o=custom-columns-file=<filename> | Print a table using the custom columns template in the <filename> file |
+| -o=custom-columns=[spec] | Print a table using a comma separated list of custom columns |
+| -o=custom-columns-file=[filename] | Print a table using the custom columns template in the [filename] file |
 | -o=json | Output a JSON formatted API object |
-| -o=jsonpath=<template> | Print the fields defined in a jsonpath expression |
-| -o=jsonpath-file=<filename> | Print the fields defined by the jsonpath expression in the <filename> file |
+| -o=jsonpath=[template] | Print the fields defined in a jsonpath expression |
+| -o=jsonpath-file=[filename] | Print the fields defined by the jsonpath expression in the [filename] file |
 | -o=name | Print only the resource name and nothing else |
 | -o=wide | Output in the plain-text format with any additional information, and for pods, the node name is included |
 | -o=yaml | Output a YAML formatted API object |
@@ -1036,7 +1036,7 @@ This section will outline how to install the Kubernetes Dashboard on AWS EKS/ECS
 **Change to the context you want to deploy dashbaord to:**  
 
 ```bash
-kubectl config use-context <ARN_OF_CONTEXT>
+kubectl config use-context [ARN_OF_CONTEXT]
 ```
 
 For Regions other than Beijing and Ningxia China, apply the Kubernetes dashboard.  
@@ -1080,7 +1080,7 @@ kubernetes-dashboard
 
 ```bash
 kubens kubernetes-dashboard
-Context "<ARN_OF_CONTEXT>" modified.
+Context "[ARN_OF_CONTEXT]" modified.
 Active namespace is "kubernetes-dashboard".
 ```
 
@@ -1142,13 +1142,13 @@ Now that the Kubernetes Dashboard is deployed to your cluster, and you have an a
 
 **To connect to the Kubernetes dashboard**  
 
-1) Retrieve an authentication token for the `eks-admin` service account. Copy the `<authentication_token>` value from the output. You use this token to connect to the dashboard. 
+1) Retrieve an authentication token for the `eks-admin` service account. Copy the `[authentication_token]` value from the output. You use this token to connect to the dashboard. 
 
 ```bash
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
 Name:         eks-admin-token-q6cxk
 Namespace:    kube-system
-Labels:       <none>
+Labels:       [none]
 Annotations:  kubernetes.io/service-account.name: eks-admin
               kubernetes.io/service-account.uid: fba717be-b152-48c2-bb71-f4a56aff653c
 
@@ -1159,7 +1159,7 @@ Data
 ca.crt:     1066 bytes
 namespace:  11 bytes
 token:     
-<TOKEN>
+[TOKEN]
 ```
 
 2) Start the kubectl proxy.
@@ -1173,7 +1173,7 @@ Starting to serve on 127.0.0.1:8001
 
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login
 
-4) Choose **Token**, paste the `<authentication_token>` output from the "Retrieve an authentication token" command from above into the **Token** field, and choose **SIGN IN**. 
+4) Choose **Token**, paste the `[authentication_token]` output from the "Retrieve an authentication token" command from above into the **Token** field, and choose **SIGN IN**. 
 
 ### Step 4: Next steps  
 
@@ -1229,16 +1229,16 @@ The UI can only be accessed from the machine where the command is executed. See 
 - Authenticate to AWS (like with awsauth.sh or awsvault)
 
 ```bash
-source ~/awsauth.sh <TOKEN_CODE_FROM_1PASSWORD>
+source ~/awsauth.sh [TOKEN_CODE_FROM_1PASSWORD]
 ```
 
 - Change to the context you want to get to dashbaord for:
 
 ```bash
-kubectl config use-context <ARN_OF_CONTEXT>
+kubectl config use-context [ARN_OF_CONTEXT]
 ```
 
-1) Retrieve an authentication token for the eks-admin service account. Copy the <authentication_token> value from the output. You use this token to connect to the dashboard. 
+1) Retrieve an authentication token for the eks-admin service account. Copy the [authentication_token] value from the output. You use this token to connect to the dashboard. 
 **Run:**  
 
 ```bash
@@ -1254,7 +1254,7 @@ kubectl proxy
 3) Put this URL in Browser:
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login  
 
-3) Choose Token, paste the <authentication_token> output from the  command in Step 1 into the Token field, and choose SIGN IN. 
+3) Choose Token, paste the [authentication_token] output from the  command in Step 1 into the Token field, and choose SIGN IN. 
 
 **Important Note:**  
 The UI can only be accessed from the machine where the command is executed. See `kubectl proxy --help` for more options.
@@ -1285,7 +1285,7 @@ kubens is a utility to switch between Kubernetes namespaces.
 
 USAGE:  
   kubens                    : list the namespaces  
-  kubens <NAME>             : change the active namespace  
+  kubens [NAME]             : change the active namespace  
   kubens -                  : switch to the previous namespace  
   kubens -c, --current      : show the current namespace  
 
@@ -1317,7 +1317,7 @@ Active namespace is "appmesh".
 ### Switch to namespace  
 
 ```bash
-kubens <MY_NAMESPACE>
+kubens [MY_NAMESPACE]
 ```
 
 
@@ -1332,7 +1332,7 @@ If get this error interacting with clusters:
 
 *Run:*  
 ```bash
-aws eks --region <REGTION> list-clusters
+aws eks --region [REGTION] list-clusters
 
 #Example:
 aws eks --region us-west-2 list-clusters
@@ -1341,7 +1341,7 @@ aws eks --region us-west-2 list-clusters
 *Then run for each cluster:*  
 
 ```bash
-aws eks --region <REGION> update-kubeconfig --name <NAME_OF_CLUSTER>
+aws eks --region [REGION] update-kubeconfig --name [NAME_OF_CLUSTER]
 
 # Example:
 aws eks --region us-west-2 update-kubeconfig --name dev-abcd1232
@@ -1351,7 +1351,7 @@ aws eks --region us-west-2 update-kubeconfig --name dev-abcd1232
 ### List clusters  
 
 ```bash
-aws eks --region <REGION> list-clusters
+aws eks --region [REGION] list-clusters
 ```
 
 **Exampe:**  
@@ -1370,7 +1370,7 @@ aws eks --region us-west-2 list-clusters
 ### Add Cluster to K8s config  
 
 ```bash
-aws eks --region <REGION> update-kubeconfig --name <NAME_OF_CLUSTER>
+aws eks --region [REGION] update-kubeconfig --name [NAME_OF_CLUSTER]
 ```
 
 **Example:**  
@@ -1435,7 +1435,7 @@ myapp1-webserver-27581262-gg59d   0/1     Terminating   0          2d21h
 
 
 # When pod is stuck in Terminating status - you have to Forceuflly Delete the pod
-kubectl delete pod <PODNAME> --grace-period=0 --force --namespace <NAMESPACE>
+kubectl delete pod [PODNAME] --grace-period=0 --force --namespace [NAMESPACE]
 ```
 
 ---
