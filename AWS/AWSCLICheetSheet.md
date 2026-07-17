@@ -37,8 +37,8 @@
 
 Ref: https://docs.aws.amazon.com/es_es/cli/latest/userguide/cli-chap-welcome.html 
 
-|           Function        |                Command                | 
-|---------------------------|---------------------------------------| 
+|           Function        |                Command                  | 
+| ------------------------- | --------------------------------------- | 
 | Install awscli            | `pip3 install awscli --upgrade --user`  | 
 | Configuring awscli        | `aws configure`                         | 
 
